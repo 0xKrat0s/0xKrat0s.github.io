@@ -1,6 +1,6 @@
 ---
 title: Linux Privilage Escalation
-date: 2024-09-20 20:00:00 +0800
+date: 2024-09-20 20:00:00 +0530
 categories: [Linux, Privilage Escalation]
 tags: [Privilage Escalation, Linux, SUDO, ROOT, SUID]
 render_with_liquid: false
