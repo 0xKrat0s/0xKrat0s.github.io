@@ -2,8 +2,8 @@
 title: Linux Privilage Escalation
 author: Amal PK
 date: 2024-09-20 20:00:00 +0800
-categories: [Linux]
-tags: [Privilage Escalation, ]
+categories: [Linux, Privilage Escalation]
+tags: [Privilage Escalation, Linux, SUDO, ROOT, SUID]
 render_with_liquid: false
 ---
 
