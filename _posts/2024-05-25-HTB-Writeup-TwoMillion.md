@@ -206,32 +206,32 @@ There are some interesting directories found with dirsearch. We should add them 
 
 Let's start Burp Suite in the back ground and navigate to the website.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520200447.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520200447.png){: width="700" height="400" }
 
 
 While we are using Burp in the background we should visit as much as possible pages to gather information about the website. Let's start at the register page.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520200800.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520200800.png){: width="700" height="400" }
 
 
 A invite code is needed to register. This is an old website of Hack The Box. They hit this challenge before you could join. This is something I can remember. We should check Burp Suite and find the JavaScript file that could help us.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520201712.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520201712.png){: width="700" height="400" }
 
 
 The JavaScript content gives us information what method we can use. This can be done in the console in the web browser.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202105.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202105.png){: width="700" height="400" }
 
 
 We got a encrypted (ROT13) message. This can be decrypted with cyberchef.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202251.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202251.png){: width="700" height="400" }
 
 
 It looks like we have to send a POST request to an API. We can use Burp easily since we captured already a lot of requests.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202525.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202525.png){: width="700" height="400" }
 
 
 A base64 code is returned. We can decode the base64 code in our terminal.
@@ -242,32 +242,32 @@ A base64 code is returned. We can decode the base64 code in our terminal.
 ```
 Now we got a invite code. This should be used in the invite endpoint.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202628.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202628.png){: width="700" height="400" }
 
 
 Just one more step before we can logon. We have to create an account for HTB.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202654.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202654.png){: width="700" height="400" }
 
 
 Since our account is created, we can try to logon.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202724.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202724.png){: width="700" height="400" }
 
 
 The famous dashboard from the past is shown to us. There are so much menu items. Where should we start is the question popping in my mind. Lucky for us, most of the hyperlinks are not working.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520202736.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202736.png){: width="700" height="400" }
 
 
 One of the hyperlinks is working and showing us the page `Access`.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520203207.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520203207.png){: width="700" height="400" }
 
 
 We could download the VPN file. But not sure what we should look for we should check Burp again. We can see several API things. Let's try to send a GET request to `/api/v1` to see how the response is.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520203432.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520203432.png){: width="700" height="400" }
 
 
 A lot of endpoints are shown. Even the HTTP Method is shown in front.
@@ -279,27 +279,27 @@ One of the API endpoint looks interesting. It is something about updating user s
 
 Let's just sent a PUT request to this endpoint to see how the system reacts.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520203902.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520203902.png){: width="700" height="400" }
 
 
 It looks like we did not sent any Content-Type to the endpoint. We should add the following header: `Content-Type: application/json` and try to sent it again.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520203947.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520203947.png){: width="700" height="400" }
 
 
 This time we are missing a parameter (email). We should add our email address and parameter in json format and send the request again.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520204059.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520204059.png){: width="700" height="400" }
 
 
 It expects the `is_admin` parameter. We did not know this and did not send it. This field is probably a Boolean. So we have to add it with the value `true`. 
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520204148.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520204148.png){: width="700" height="400" }
 
 
 Well true, was not correct. It expects a `1` or a `0`. We should use `1` to set the value to `true`. After changing this we can send the request again.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520204210.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520204210.png){: width="700" height="400" }
 
 
 We got a success message! Now we can check if we are indeed an admin with the following API endpoint.
@@ -310,7 +310,7 @@ We got a success message! Now we can check if we are indeed an admin with the fo
 
 Let's send the request with Burp.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520204430.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520204430.png){: width="700" height="400" }
 
 
 So we have admin privileges now. We should probably now look for the generate VPN for another user.
@@ -321,18 +321,18 @@ So we have admin privileges now. We should probably now look for the generate VP
 
 Let's just send a an empty request to the API, to see how it will respond.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520205313.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520205313.png){: width="700" height="400" }
 
 
 We should have sent the request with the field `username`. So let's add it and sent it again.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520205352.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520205352.png){: width="700" height="400" }
 
 
 We got a response, but it looks like there are more details then it should be. Perhaps we can run system command via the API. Let's try it with `; id; whoami #` to see who we are.
 
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520205450.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520205450.png){: width="700" height="400" }
 
 
 It looks like we are running commands as `www-data`. If we can run system command we might be able to start a reverse shell.
@@ -353,7 +353,7 @@ The reverse shell payload should look like this.
 ```
 Now we can send the request with Burp Suite Repeater.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520205852.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520205852.png){: width="700" height="400" }
 
 
 Let's check our netcat listener.
@@ -537,7 +537,7 @@ Linux 5.15.70-051570-generic x86_64
 ```
 
 Let's use out Google Fu to find some information about this vulnerability
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520212130.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520212130.png){: width="700" height="400" }
 
 
 There is a Github page with an exploit.
@@ -691,4 +691,4 @@ root@2million:/root# cat thank_you.json
 ```
 Let's use cyberchef to read the thank you message.
 
-![Image](/assets/img/WriteUp/HTB/TwoMillion/Pasted image 20240520214427.png){: width="700" height="400" }
+![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520214427.png){: width="700" height="400" }
