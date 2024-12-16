@@ -4,22 +4,12 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Over the years, I have been passionate about computers and their potential. From a young age, I have always been active in creating and troubleshooting digital devices. My journey began with a degree in computer science, followed by work as a system administrator, test consultant, and security specialist. Recently, I have also obtained certifications in cybersecurity. I started this blog to enhance my knowledge, document my progress in cybersecurity, and share my experiences with the community. Together, we can contribute to a safer digital environment.
+My name is Amal, I work in cybersecurity, focusing on keeping applications safe and finding vulnerabilities. I'm always learning and growing in this field and currently working as a Security Analyst. I specialize in application security and am deeply committed to advancing my career in this field. My expertise lies in identifying and resolving security vulnerabilities, which I approach with a strong passion for continuous learning. I engage in hands-on projects, collaborative efforts, and cutting-edge research to stay at the forefront of the industry.
 
-To share my knowledge and learn from others, I enjoy designing and building vulnerable machines. Below is a list of machines I have created:
+In my role as a Security Analyst, I focus on analyzing and fortifying applications to protect them from potential threats. My work involves not only technical skills but also effective communication, which ensures smooth collaboration with team members and adaptability in fast-paced environments.
 
-| Machine name | Download |
-|--------|-----------|
-| Apaches | [hackmyvm.eu](https://downloads.hackmyvm.eu/apaches.zip) |
-| CodeShield | [hackmyvm.eu](https://downloads.hackmyvm.eu/codeshield.zip) |
-| Elite Economists (aka Economists) | [hackmyvm.eu](https://downloads.hackmyvm.eu/economists.zip) |
-| XMAS | [hackmyvm.eu](https://downloads.hackmyvm.eu/xmas.zip) |
-| Quick | [hackmyvm.eu](https://downloads.hackmyvm.eu/quick.zip) |
-| Quick 2 |[hackmyvm.eu](https://downloads.hackmyvm.eu/quick2.zip) |
-| Quick 3 |[hackmyvm.eu](https://downloads.hackmyvm.eu/quick3.zip) |
-| Save Santa | [hackmyvm.eu](https://downloads.hackmyvm.eu/savesanta.zip) |
-| Quick 4 | [hackmyvm.eu](https://downloads.hackmyvm.eu/quick4.zip) |
-| Quick 5 | [hackmyvm.eu](https://downloads.hackmyvm.eu/quick5.zip) |
+I have consistently excelled in Capture The Flag (CTF) challenges, which showcase my ability to tackle complex security problems both independently and as part of a team. My goal is to contribute meaningfully to the cybersecurity field, leveraging my skills and experience to drive progress and innovation.
 
-By creating and testing vulnerable machines, I can gain a deeper understanding of cybersecurity threats and potential solutions. 
-This knowledge can then be shared with the community, fostering a collaborative environment for learning and growth.
+Reach out to me via:
+- [Linkedin](https://www.linkedin.com/in/amalpk/)
+- [Twitter](https://x.com/0xKrat0s)
