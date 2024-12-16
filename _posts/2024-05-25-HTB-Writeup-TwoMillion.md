@@ -1,6 +1,5 @@
 ---
 title: Two Million HTB Writeup
-author: Amal PK
 date: 2024-05-25 10:00:00 +0000
 categories: [CTF, HTB]
 tags: [HTB, Command Injection, environment-password ,password-reuse  ,CVE-2023-2640, overlayfs , PATH hijack, OSWA, WEB200]
