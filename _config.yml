@@ -9,7 +9,7 @@ theme: jekyll-theme-chirpy
 lang: en
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone: Europe/Amsterdam
+timezone: Asia/Kolkata
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
@@ -23,13 +23,13 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://0xkrat0s.github.io/"
+url: "https://emvee-nl.github.io"
 
 github:
-  username: 0xkrat0s # change to your github username
+  username: eMVee-NL # change to your github username
 
 twitter:
-  username: 0xKrat0s # change to your twitter username
+  username: eMVee_NL # change to your twitter username
 
 social:
   # Change to your full name.
@@ -38,11 +38,11 @@ social:
   email:  # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/0xKrat0s # change to your twitter homepage
-    - https://github.com/0xKrat0s # change to your github homepage
+    - https://twitter.com/eMVee_NL # change to your twitter homepage
+    - https://github.com/eMVee-NL # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-   - https://www.linkedin.com/in/amalpk
+    # - https://www.linkedin.com/in/username
 
 google_site_verification: # fill in to your verification string
 
@@ -76,7 +76,7 @@ theme_mode: # [light | dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://avatars.githubusercontent.com/u/105988204
+avatar: https://avatars.githubusercontent.com/u/45883753
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
