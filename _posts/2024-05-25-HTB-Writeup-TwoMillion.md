@@ -240,7 +240,7 @@ A base64 code is returned. We can decode the base64 code in our terminal.
 └─$ echo 'NVBERkstVDZQU1ItMEpCUlotVVRJWVk=' | base64 -d      
 5PDFK-T6PSR-0JBRZ-UTIYY  
 ```
-Now we got a invite code. This should be used in the invite endpoint.
+Now we got a invite code. This should be used in the invite endpoint
 
 ![Image](/assets/img/Writeup/HTB/TwoMillion/Pasted image 20240520202628.png){: width="700" height="400" }
 
