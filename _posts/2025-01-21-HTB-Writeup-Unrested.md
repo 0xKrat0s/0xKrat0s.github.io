@@ -53,10 +53,10 @@ Zabbix is like a digital watchdog for computers and networks. Think of it as a t
 
 Using the provided credentials, we can authenticate as matthew and access the Zabbix dashboard. This account is in the default User role with no additional groups or privileges. At the bottom of the page, we see the Zabbix version of 7.0.0 
 
-![Zabbix Dashboard](https://hackmd.io/_uploads/By8Rljjwkx.png)
+![Zabbix Dashboard]([https://hackmd.io/_uploads/By8Rljjwkx.png](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_3e4665f4ddcd736cb5f4bc0bc2e3c014.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446196&Signature=p1Zy8kUn4zi%2B8zXWXriJx2nSm6I%3D))
 
 The Zabbix version can be seen as 7.0.0. 
-![Zabbix Version](https://hackmd.io/_uploads/ByTb-jjD1l.png)
+![Zabbix Version]([https://hackmd.io/_uploads/ByTb-jjD1l.png](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_9c0f227ff857b03b64b1c716d104a4bd.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446220&Signature=YJsXJ2BDhlqy9K%2Bz9IysvdBUzgw%3D))
 
 Searching the web gives us two vulnerabilities. `CVE-2024-36467` and `CVE-2024-42327`.
 
