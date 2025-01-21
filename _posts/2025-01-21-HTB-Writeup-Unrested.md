@@ -81,11 +81,11 @@ By adding themselves to high-privilege groups like “Zabbix Administrators,” 
 
 Let’s refer to the [Zabbix website documentation](https://www.zabbix.com/documentation/current/en/manual/api) to gather more information. 
 
-![Zabbix API](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_e01c4002a8ff7c5e8c57a03dc6c204d6.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446437&Signature=geRWWyk1E1ZgU6ajTvq4yuqIHjE%3D)
+![Zabbix API](https://camo.githubusercontent.com/947ad165df3fce812b249bcf4e9278d181bc03640cf5153ef1c14627ce6354cf/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f65303163343030326138666637633565386335376130336463366332303464362e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436343337265369676e61747572653d6765525757796b3145315a675536616a5476713479757149486a45253344)
 
 Lets check the `api_jsonrpc.php` in our target.
 
-![Zabbix api](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_c9e6fb2b450a5cfe5890ffddb41b4766.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446449&Signature=cVv%2F8sZ1WGuBGv2NQldwyW%2B2UHc%3D)
+![Zabbix api](https://camo.githubusercontent.com/6701d9b7c773309469f3d1a414d285355f74e22cd523cbfa8991544b46b59895/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f63396536666232623435306135636665353839306666646462343162343736362e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436343439265369676e61747572653d63567625324638735a31574775424776324e516c6477795725324232554863253344)
 
 #### `api_jsonrpc` Request Format
 
@@ -100,26 +100,26 @@ The request must have the `Content-Type header` set to one of these values: `app
 
 To carry out the exploitation, we begin by authenticating the API with user credentials, which returns an API key as a response.
 
-![Zabbix API Burpsuite](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_50cd7677b6857f18aac16528ad482bb4.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446477&Signature=HUKSxH6b7Q0MaOjXItuSysipVdY%3D)
+![Zabbix API Burpsuite](https://camo.githubusercontent.com/bec9cfeb92f5c16fb3b6525799fedbec250b775d36b4cffbc614bf64a0557f6d/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f35306364373637376236383537663138616163313635323861643438326262342e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436343737265369676e61747572653d48554b53784836623751304d614f6a584974755379736970566459253344)
 
 Successfully got a API token. Before we try `user.update` to update our roles, let’s try to find our userid. Bruteforcing the userids also work but we can see every user id using user.get function. Using the `selectRole` or `SelectUsrgrps` as params returns the userlist and scrolling down, we can see `matthew` user as `userid:3`.
 
-![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_2426d11738394caf81a2fef06aa3d0ab.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446488&Signature=c%2FX7mzXduzu8MnOT8xLqVWP12Rg%3D)
+![image](https://camo.githubusercontent.com/92236672874a44cd3c1121592d87397cc6948c636ef2fad649520016880f904e/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f32343236643131373338333934636166383161326665663036616133643061622e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436343838265369676e61747572653d6325324658376d7a5864757a75384d6e4f5438784c7156575031325267253344)
 
 From the json response we can also see that Administrator role is roleid:3 and matthew user has roleid:1 which is probably the default user id. Let’s try to set our roleid to Administrator. But we get the following error.
 
-![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_9f627ca214f018bebda7318aba14591a.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446499&Signature=3tmgm%2BGJx9v%2FilNwHccPmQNoxcQ%3D)
+![image](https://camo.githubusercontent.com/6787501bad2a4df6e1c970103c4cdb1b9c41d92b4e27758f8fea8e8391c9f9d3/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f39663632376361323134663031386265626461373331386162613134353931612e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436343939265369676e61747572653d33746d676d253242474a783976253246696c4e77486363506d514e6f786351253344)
 So it seems that we can’t change our role beacuse in CUser.php file, validateUpdate() and checkHimself() functions checks if its our own role or not. But we also see that in user.update, we can change our usrgroup which doesn’t have any validation placed.
 
 We also need to find a valid “usrgrpid” to make us Administrator. Luckily, i have seen Zabbix Administrators id in the manual page as 7. This is crucial beacause it saves time from bruteforcing all the group ids.
 
-![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_1fd3dd3f89de8362d5525c854819b23d.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446515&Signature=vpZRgqUQwjLg969oLPngxhmDpfY%3D)
+![image](https://camo.githubusercontent.com/53a5c83ae47a4e42001eb798345eca1f1af1a5c16ed954929739976999d9a1b7/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f31666433646433663839646538333632643535323563383534383139623233642e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436353135265369676e61747572653d76705a5267715551776a4c673936396f4c506e6778686d44706659253344)
 
 Now that we have the group id, let’s add our user to `Zabbix Administrators` using `user.update`.
 
 Note that without this privilege escalation, we can’t perform the SQL injection in the upcoming part.
 
-![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_b20cee3cfe32d4a063bbf01afb107caa.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446523&Signature=CKfhXjZkG4sOMC9YRt4YoDwEnBE%3D)
+![image](https://camo.githubusercontent.com/52a1df87577f901be08cd3ea87d152f52c356cca27265b520cf7988495ddad3c/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f62323063656533636665333264346130363362626630316166623130376361612e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436353233265369676e61747572653d434b6668586a5a6b4734734f4d433959527434596f4477456e4245253344)
 
 ### Overview of CVE-2024-42327
 
@@ -127,7 +127,7 @@ CVE-2024–42327 is a vulnerability where attacker can perform an SQL injection 
 
 Using the following request, we can see that request took 6,408 ms which means our SLEEP(5) payload resulted with time-based sql injection.
 
-![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_8994a1cd97035468112cb6db518cc776.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446531&Signature=cwciCW5Avr8r2aEjhwzXX9caRGg%3D)
+![image](https://camo.githubusercontent.com/692e9d5918728e1e2ad0694ea01eaa4f01047fa24c00216b4d622b8b58f802df/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f38393934613163643937303335343638313132636236646235313863633737362e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436353331265369676e61747572653d6377636943573541767238723261456a68777a5858396361524767253344)
 
 Lets do automated scan since it would take a long time to do it manually. Replace the sqli payload with `*` and copy the request to a file. Then dump the database using sqlmap.
 
@@ -250,7 +250,7 @@ Now that we have admin session, using our privileges we can get Remote Code Exec
 
 Hosting a simple reverse shell on port 8000 and using the command below, returns a connection.
 
-![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_ebe092a33cf4ba9a9b87c665611c5416.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446543&Signature=mJKX48VEgGjxkh%2BE1%2Bpdzg%2BfJgA%3D)
+![image](https://camo.githubusercontent.com/b469cbfdf91f25cae72a289f3c96a6e40e26e4f7a70a0f64eea05cadd082a1a0/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f65626530393261333363663462613961396238376336363536313163353431362e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31373337343436353433265369676e61747572653d6d4a4b583438564567476a786b68253242453125324270647a67253242664a6741253344)
 
 ```
 $nc -lvnp 9999
