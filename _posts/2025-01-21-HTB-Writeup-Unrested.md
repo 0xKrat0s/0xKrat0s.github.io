@@ -53,10 +53,11 @@ Zabbix is like a digital watchdog for computers and networks. Think of it as a t
 
 Using the provided credentials, we can authenticate as matthew and access the Zabbix dashboard. This account is in the default User role with no additional groups or privileges. At the bottom of the page, we see the Zabbix version of 7.0.0 
 
-![Zabbix Dashboard]([https://hackmd.io/_uploads/By8Rljjwkx.png](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_3e4665f4ddcd736cb5f4bc0bc2e3c014.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446196&Signature=p1Zy8kUn4zi%2B8zXWXriJx2nSm6I%3D))
+![Zabbix Dashboard](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_3e4665f4ddcd736cb5f4bc0bc2e3c014.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446196&Signature=p1Zy8kUn4zi%2B8zXWXriJx2nSm6I%3D)
 
 The Zabbix version can be seen as 7.0.0. 
-![Zabbix Version]([https://hackmd.io/_uploads/ByTb-jjD1l.png](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_9c0f227ff857b03b64b1c716d104a4bd.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446220&Signature=YJsXJ2BDhlqy9K%2Bz9IysvdBUzgw%3D))
+
+![Zabbix Version](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_9c0f227ff857b03b64b1c716d104a4bd.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446220&Signature=YJsXJ2BDhlqy9K%2Bz9IysvdBUzgw%3D)
 
 Searching the web gives us two vulnerabilities. `CVE-2024-36467` and `CVE-2024-42327`.
 
@@ -80,11 +81,11 @@ By adding themselves to high-privilege groups like “Zabbix Administrators,” 
 
 Let’s refer to the [Zabbix website documentation](https://www.zabbix.com/documentation/current/en/manual/api) to gather more information. 
 
-![Zabbix API](https://hackmd.io/_uploads/H1iY4ojvkl.png)
+![Zabbix API](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_e01c4002a8ff7c5e8c57a03dc6c204d6.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446437&Signature=geRWWyk1E1ZgU6ajTvq4yuqIHjE%3D)
 
 Lets check the `api_jsonrpc.php` in our target.
 
-![Zabbix api](https://hackmd.io/_uploads/r1FkrosDkx.png)
+![Zabbix api](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_c9e6fb2b450a5cfe5890ffddb41b4766.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446449&Signature=cVv%2F8sZ1WGuBGv2NQldwyW%2B2UHc%3D)
 
 #### `api_jsonrpc` Request Format
 
@@ -99,26 +100,26 @@ The request must have the `Content-Type header` set to one of these values: `app
 
 To carry out the exploitation, we begin by authenticating the API with user credentials, which returns an API key as a response.
 
-![Zabbix API Burpsuite](https://hackmd.io/_uploads/Sy91LoiDkx.png)
+![Zabbix API Burpsuite](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_50cd7677b6857f18aac16528ad482bb4.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446477&Signature=HUKSxH6b7Q0MaOjXItuSysipVdY%3D)
 
 Successfully got a API token. Before we try `user.update` to update our roles, let’s try to find our userid. Bruteforcing the userids also work but we can see every user id using user.get function. Using the `selectRole` or `SelectUsrgrps` as params returns the userlist and scrolling down, we can see `matthew` user as `userid:3`.
 
-![image](https://hackmd.io/_uploads/r1-6uojvye.png)
+![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_2426d11738394caf81a2fef06aa3d0ab.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446488&Signature=c%2FX7mzXduzu8MnOT8xLqVWP12Rg%3D)
 
 From the json response we can also see that Administrator role is roleid:3 and matthew user has roleid:1 which is probably the default user id. Let’s try to set our roleid to Administrator. But we get the following error.
 
-![image](https://hackmd.io/_uploads/Sk1BtojDJe.png)
+![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_9f627ca214f018bebda7318aba14591a.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446499&Signature=3tmgm%2BGJx9v%2FilNwHccPmQNoxcQ%3D)
 So it seems that we can’t change our role beacuse in CUser.php file, validateUpdate() and checkHimself() functions checks if its our own role or not. But we also see that in user.update, we can change our usrgroup which doesn’t have any validation placed.
 
 We also need to find a valid “usrgrpid” to make us Administrator. Luckily, i have seen Zabbix Administrators id in the manual page as 7. This is crucial beacause it saves time from bruteforcing all the group ids.
 
-![image](https://hackmd.io/_uploads/r1rJqjiPyx.png)
+![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_1fd3dd3f89de8362d5525c854819b23d.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446515&Signature=vpZRgqUQwjLg969oLPngxhmDpfY%3D)
 
 Now that we have the group id, let’s add our user to `Zabbix Administrators` using `user.update`.
 
 Note that without this privilege escalation, we can’t perform the SQL injection in the upcoming part.
 
-![image](https://hackmd.io/_uploads/S17dcisD1x.png)
+![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_b20cee3cfe32d4a063bbf01afb107caa.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446523&Signature=CKfhXjZkG4sOMC9YRt4YoDwEnBE%3D)
 
 ### Overview of CVE-2024-42327
 
@@ -126,7 +127,7 @@ CVE-2024–42327 is a vulnerability where attacker can perform an SQL injection 
 
 Using the following request, we can see that request took 6,408 ms which means our SLEEP(5) payload resulted with time-based sql injection.
 
-![image](https://hackmd.io/_uploads/HyWPehsvkl.png)
+![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_8994a1cd97035468112cb6db518cc776.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446531&Signature=cwciCW5Avr8r2aEjhwzXX9caRGg%3D)
 
 Lets do automated scan since it would take a long time to do it manually. Replace the sqli payload with `*` and copy the request to a file. Then dump the database using sqlmap.
 
@@ -249,7 +250,7 @@ Now that we have admin session, using our privileges we can get Remote Code Exec
 
 Hosting a simple reverse shell on port 8000 and using the command below, returns a connection.
 
-![image](https://hackmd.io/_uploads/SJERrhoPJx.png)
+![image](https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_ebe092a33cf4ba9a9b87c665611c5416.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1737446543&Signature=mJKX48VEgGjxkh%2BE1%2Bpdzg%2BfJgA%3D)
 
 ```
 $nc -lvnp 9999
