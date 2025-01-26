@@ -44,6 +44,18 @@ social:
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/amalpk
 
+webmaster_verifications:
+  google: imSGv4Gj6q-ymfSPGK4HPlF8GPffwpbcz2K9O5_pOmM
+  bing: # fill in your Bing verification code
+  alexa: # fill in your Alexa verification code
+  yandex: # fill in your Yandex verification code
+  baidu: # fill in your Baidu verification code
+  facebook: # fill in your Facebook verification code
+
+# ↑ --------------------------
+# The end of `jekyll-seo-tag` settings
+
+
 google_site_verification: imSGv4Gj6q-ymfSPGK4HPlF8GPffwpbcz2K9O5_pOmM
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
@@ -150,7 +162,7 @@ defaults:
       path: "" # An empty string here means all files in the project
       type: posts
     values:
-      layout: base-with-verification
+      layout: post
       comments: true # Enable comments in posts.
       toc: true # Display TOC column in posts.
       # DO NOT modify the following parameter unless you are confident enough
