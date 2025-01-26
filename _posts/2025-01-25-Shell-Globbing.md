@@ -62,8 +62,8 @@ Let's consider a vulnerable PHP script:
 ```php
 <?php
       echo 'ok: ';
-      print_r($_GET['c']);
-      system($_GET['c']);
+      print_r($_GET['cmd']);
+      system($_GET['cmd']);
 ?>
 ```
 
