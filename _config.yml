@@ -202,3 +202,15 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+plugins:
+  - jekyll-sitemap
+
+sitemap:
+  # Optional: specify a different base URL
+  base_url: "https://0xkrat0s.github.io" #or your url
+  # Optional: exclude some paths
+  exclude:
+    - /assets/ # exclude your assets
+    - /tools/ # exclude a tools directory
+    - /_site # exclude your _site directory
