@@ -1,4 +1,18 @@
-# Chirpy Starter
+# A Blog about everything!
+**Link:** https://0xkrat0s.github.io
+
+This blog dedicated to exploring the latest vulnerabilities, exploits, and techniques in the field of cybersecurity. With detailed write-ups, tutorials, and discussions on CVEs, web application security, penetration testing, and more, this blog aims to help professionals stay updated and improve their skills. Whether you're a beginner or an experienced practitioner, you'll find valuable resources to enhance your understanding of cybersecurity
+
+## About Me
+
+My name is Amal, I work in cybersecurity, focusing on keeping applications safe and finding vulnerabilities. I’m always learning and growing in this field and currently working as a Security Analyst. I specialize in application security and am deeply committed to advancing my career in this field. My expertise lies in identifying and resolving security vulnerabilities, which I approach with a strong passion for continuous learning. I engage in hands-on projects, collaborative efforts, and cutting-edge research to stay at the forefront of the industry.
+
+## Contact Me
+1. [Linkedin](https://www.linkedin.com/in/amalpk/)
+2. [Twitter](https://x.com/0xKrat0s)
+
+# For those who need to start a blog like this:
+### Chirpy Starter
 
 [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
