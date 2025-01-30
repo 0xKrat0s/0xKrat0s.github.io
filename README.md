@@ -1,5 +1,6 @@
 # A Blog about everything!
 **Link:** https://0xkrat0s.github.io
+**Also follow me on [Medium](https://0xkratos.medium.com)**
 
 This blog dedicated to exploring the latest vulnerabilities, exploits, and techniques in the field of cybersecurity. With detailed write-ups, tutorials, and discussions on CVEs, web application security, penetration testing, and more, this blog aims to help professionals stay updated and improve their skills. Whether you're a beginner or an experienced practitioner, you'll find valuable resources to enhance your understanding of cybersecurity
 
