@@ -84,13 +84,18 @@
   }
   
   .nav-link {
-    @apply relative text-sm overflow-hidden font-mono group transition-colors 
+    @apply relative text-sm overflow-hidden font-mono transition-colors 
            text-cyber-light-gray hover:text-cyber-green;
   }
   
   .nav-link::after {
     content: "";
-    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-cyber-green transition-all duration-300 group-hover:w-full;
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-cyber-green transition-all duration-300;
+  }
+  
+  /* Fix: Remove @apply with group utility and replace with proper class */
+  .nav-link:hover::after {
+    width: 100%;
   }
 }
 
