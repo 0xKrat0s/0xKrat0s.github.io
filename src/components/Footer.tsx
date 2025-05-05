@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 flex items-center">
-            <span className="font-mono font-bold text-cyber-green mr-2">~/</span>
+            <span className="font-mono font-bold text-cyber-blue mr-2">~/</span>
             <span className="font-mono">cyber_portfolio</span>
           </div>
           

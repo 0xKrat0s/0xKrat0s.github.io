@@ -1,23 +1,14 @@
 
-import { Progress } from "@/components/ui/progress";
+import { Code, Shield } from "lucide-react";
 
 const SkillsSection = () => {
-  const technicalSkills = [
-    { name: "Penetration Testing", level: 95 },
-    { name: "Malware Analysis", level: 88 },
-    { name: "Network Security", level: 92 },
-    { name: "Secure Coding", level: 85 },
-    { name: "Reverse Engineering", level: 90 },
-    { name: "Cloud Security", level: 82 }
-  ];
-  
-  const developmentSkills = [
-    { name: "Python", level: 95 },
-    { name: "C/C++", level: 88 },
-    { name: "JavaScript", level: 86 },
-    { name: "Go", level: 80 },
-    { name: "Bash Scripting", level: 92 },
-    { name: "Rust", level: 75 }
+  const securitySkills = [
+    "Penetration Testing", 
+    "Malware Analysis", 
+    "Network Security", 
+    "Secure Coding", 
+    "Reverse Engineering", 
+    "Cloud Security"
   ];
   
   const toolsExpertise = [
@@ -26,54 +17,55 @@ const SkillsSection = () => {
     "AWS Security Tools", "SIEM Systems"
   ];
 
-  const renderSkillBar = (skill: { name: string, level: number }, index: number) => (
-    <div 
-      key={skill.name} 
-      className="mb-6"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
-      <div className="flex justify-between items-center mb-2">
-        <span className="font-mono text-sm">{skill.name}</span>
-        <span className="font-mono text-xs text-cyber-light-gray">{skill.level}%</span>
-      </div>
-      <div className="relative">
-        <Progress 
-          value={skill.level} 
-          className="h-2 bg-cyber-gray" 
-        />
-        <div 
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyber-green to-cyber-blue opacity-30" 
-          style={{ width: `${skill.level}%` }}
-        ></div>
-      </div>
-    </div>
-  );
+  const languages = [
+    "Python", "C/C++", "JavaScript", "Go", "Bash Scripting", "Rust"
+  ];
 
   return (
     <section id="skills" className="py-20 bg-cyber-dark/50">
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Skills</h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
-          <div>
-            <h3 className="text-xl font-mono text-cyber-blue mb-6">Security Expertise</h3>
-            {technicalSkills.map(renderSkillBar)}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <div className="tech-card bg-gradient-to-br from-cyber-gray/90 to-cyber-gray/70 backdrop-filter backdrop-blur-sm p-6">
+            <div className="flex items-center mb-6">
+              <Shield className="text-cyber-blue mr-3 h-6 w-6" />
+              <h3 className="text-xl font-mono text-cyber-bright-blue">Security Expertise</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {securitySkills.map((skill) => (
+                <div key={skill} className="flex items-center">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyber-blue mr-2"></span>
+                  <span className="text-cyber-light-gray">{skill}</span>
+                </div>
+              ))}
+            </div>
           </div>
           
-          <div>
-            <h3 className="text-xl font-mono text-cyber-blue mb-6">Development</h3>
-            {developmentSkills.map(renderSkillBar)}
+          <div className="tech-card bg-gradient-to-br from-cyber-gray/90 to-cyber-gray/70 backdrop-filter backdrop-blur-sm p-6">
+            <div className="flex items-center mb-6">
+              <Code className="text-cyber-blue mr-3 h-6 w-6" />
+              <h3 className="text-xl font-mono text-cyber-bright-blue">Programming Languages</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {languages.map((language) => (
+                <div key={language} className="flex items-center">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyber-blue mr-2"></span>
+                  <span className="text-cyber-light-gray">{language}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         
         <div className="mt-12">
           <h3 className="text-xl font-mono text-cyber-blue mb-6">Tools & Technologies</h3>
           <div className="flex flex-wrap gap-3">
-            {toolsExpertise.map((tool, index) => (
+            {toolsExpertise.map((tool) => (
               <div 
                 key={tool}
-                className="px-4 py-2 bg-cyber-gray rounded-md border border-cyber-green/20 font-mono text-sm
-                         hover:border-cyber-green/70 transition-all cursor-default"
+                className="px-4 py-2 bg-cyber-gray/60 rounded-md border border-cyber-blue/20 font-mono text-sm
+                         hover:border-cyber-blue/70 transition-all cursor-default hover:bg-cyber-gray/80"
               >
                 {tool}
               </div>
@@ -81,32 +73,32 @@ const SkillsSection = () => {
           </div>
         </div>
 
-        <div className="mt-16 tech-card">
+        <div className="mt-16 tech-card bg-gradient-to-br from-cyber-gray/90 to-cyber-gray/70 backdrop-filter backdrop-blur-sm">
           <h3 className="text-xl font-mono text-cyber-blue mb-4">Certifications & Education</h3>
           <ul className="space-y-3">
             <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-green mt-2 mr-3 flex-shrink-0"></div>
+              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
               <div>
                 <p className="font-medium">OSCP (Offensive Security Certified Professional)</p>
                 <p className="text-cyber-light-gray text-sm">Offensive Security</p>
               </div>
             </li>
             <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-green mt-2 mr-3 flex-shrink-0"></div>
+              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
               <div>
                 <p className="font-medium">CISSP (Certified Information Systems Security Professional)</p>
                 <p className="text-cyber-light-gray text-sm">ISC²</p>
               </div>
             </li>
             <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-green mt-2 mr-3 flex-shrink-0"></div>
+              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
               <div>
                 <p className="font-medium">M.S. Computer Science, Cybersecurity Specialization</p>
                 <p className="text-cyber-light-gray text-sm">Georgia Institute of Technology</p>
               </div>
             </li>
             <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-green mt-2 mr-3 flex-shrink-0"></div>
+              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
               <div>
                 <p className="font-medium">B.S. Computer Science</p>
                 <p className="text-cyber-light-gray text-sm">Massachusetts Institute of Technology</p>

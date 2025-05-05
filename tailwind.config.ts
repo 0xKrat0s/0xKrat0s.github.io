@@ -58,8 +58,8 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				cyber: {
-					"green": "#00ff41",
-					"blue": "#0072ff",
+					"blue": "#0EA5E9", // Primary blue
+					"bright-blue": "#1EAEDB", // Secondary blue
 					"dark": "#121212",
 					"gray": "#2d2d2d",
 					"light-gray": "#aaaaaa",
@@ -97,9 +97,9 @@ export default {
 						height: '0'
 					}
 				},
-				'pulse-green': {
-					'0%, 100%': { boxShadow: '0 0 0 0 rgba(0, 255, 65, 0.4)' },
-					'50%': { boxShadow: '0 0 0 10px rgba(0, 255, 65, 0)' },
+				'pulse-blue': {
+					'0%, 100%': { boxShadow: '0 0 0 0 rgba(14, 165, 233, 0.4)' },
+					'50%': { boxShadow: '0 0 0 10px rgba(14, 165, 233, 0)' },
 				},
 				'terminal-cursor': {
 					'0%': { opacity: 0 },
@@ -114,7 +114,7 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-green': 'pulse-green 2s infinite',
+				'pulse-blue': 'pulse-blue 2s infinite',
 				'terminal-cursor': 'terminal-cursor 1s infinite',
 				'fade-in': 'fade-in 0.5s ease-out forwards'
 			}

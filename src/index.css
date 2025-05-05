@@ -16,7 +16,7 @@
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 142 100% 50%;
+    --primary: 199 84% 55%;
     --primary-foreground: 0 0% 10%;
 
     --secondary: 0 0% 18%;
@@ -25,7 +25,7 @@
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 210 100% 50%;
+    --accent: 199 100% 55%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 142 100% 40%;
+    --ring: 199 84% 45%;
 
     --radius: 0.5rem;
   }
@@ -60,13 +60,13 @@
 
 @layer components {
   .tech-card {
-    @apply relative bg-cyber-gray border border-cyber-green/30 p-4 rounded-md 
-           overflow-hidden transition-all duration-300 hover:border-cyber-green/80;
+    @apply relative bg-cyber-gray border border-cyber-blue/30 p-4 rounded-md 
+           overflow-hidden transition-all duration-300 hover:border-cyber-blue/80;
   }
 
   .tech-card::before {
     content: "";
-    @apply absolute inset-0 bg-gradient-to-r from-cyber-green/5 to-cyber-blue/5 opacity-0 
+    @apply absolute inset-0 bg-gradient-to-r from-cyber-blue/5 to-cyber-bright-blue/5 opacity-0 
            transition-opacity duration-300;
   }
 
@@ -75,7 +75,7 @@
   }
 
   .section-heading {
-    @apply font-mono text-2xl md:text-3xl font-bold text-cyber-green mb-6 inline-flex items-center space-x-2;
+    @apply font-mono text-2xl md:text-3xl font-bold text-cyber-blue mb-6 inline-flex items-center space-x-2;
   }
 
   .section-heading::before {
@@ -85,12 +85,12 @@
   
   .nav-link {
     @apply relative text-sm overflow-hidden font-mono transition-colors 
-           text-cyber-light-gray hover:text-cyber-green;
+           text-cyber-light-gray hover:text-cyber-blue;
   }
   
   .nav-link::after {
     content: "";
-    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-cyber-green transition-all duration-300;
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-cyber-blue transition-all duration-300;
   }
   
   /* Fix: Remove @apply with group utility and replace with proper class */
@@ -104,6 +104,6 @@ html {
 }
 
 ::selection {
-  background-color: rgba(0, 255, 65, 0.3);
+  background-color: rgba(14, 165, 233, 0.3);
   color: #ffffff;
 }

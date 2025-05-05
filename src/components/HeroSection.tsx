@@ -73,7 +73,7 @@ const HeroSection = () => {
       
       // Draw edges
       ctx.lineWidth = 2;
-      ctx.strokeStyle = 'rgba(0, 255, 65, 0.8)';
+      ctx.strokeStyle = 'rgba(14, 165, 233, 0.8)';
       
       edges.forEach(([a, b]) => {
         const alpha = Math.min(
@@ -89,7 +89,7 @@ const HeroSection = () => {
       });
       
       // Draw vertices
-      ctx.fillStyle = '#0072ff';
+      ctx.fillStyle = '#1EAEDB';
       rotatedVertices.forEach(({ x, y, z }) => {
         const alpha = Math.min(1, (z + 2) * 0.5);
         const size = Math.max(3, 5 * ((z + 2) * 0.25));
@@ -125,13 +125,13 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="w-full md:w-1/2">
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-sm text-cyber-green font-mono mb-2">
-                <div className="h-1 w-1 rounded-full bg-cyber-green animate-pulse-green"></div>
+              <div className="flex items-center gap-2 text-sm text-cyber-blue font-mono mb-2">
+                <div className="h-1 w-1 rounded-full bg-cyber-blue animate-pulse-blue"></div>
                 <span>// Security Researcher & Developer</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-mono">
-                Hello, I'm <span className="text-cyber-green">CyberDev</span>
+                Hello, I'm <span className="text-cyber-blue">CyberDev</span>
               </h1>
               
               <p className="text-lg md:text-xl mb-8 text-cyber-light-gray max-w-lg">
@@ -139,10 +139,10 @@ const HeroSection = () => {
               </p>
               
               <div className="flex gap-4">
-                <Button className="bg-cyber-green text-black hover:bg-cyber-green/80 font-mono">
+                <Button className="bg-cyber-blue text-black hover:bg-cyber-blue/80 font-mono">
                   View Projects
                 </Button>
-                <Button variant="outline" className="border-cyber-green text-cyber-green hover:bg-cyber-green/10 font-mono">
+                <Button variant="outline" className="border-cyber-blue text-cyber-blue hover:bg-cyber-blue/10 font-mono">
                   Contact Me
                 </Button>
               </div>
