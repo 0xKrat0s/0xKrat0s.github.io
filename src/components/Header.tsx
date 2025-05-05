@@ -7,7 +7,7 @@ const Header = () => {
   
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'articles', 'skills', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'articles', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -41,15 +41,15 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <nav className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <span className="font-mono font-bold text-cyber-green text-lg mr-2">~/</span>
+            <span className="font-mono font-bold text-cyber-blue text-lg mr-2">~/</span>
             <span className="font-mono font-bold">cyber_portfolio</span>
-            <span className="animate-terminal-cursor text-cyber-green ml-1">_</span>
+            <span className="animate-terminal-cursor text-cyber-blue ml-1">_</span>
           </div>
           
           {/* Mobile menu button */}
           <button
             onClick={() => setNavOpen(!navOpen)}
-            className="md:hidden p-2 text-cyber-green"
+            className="md:hidden p-2 text-cyber-blue"
           >
             {navOpen ? 
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,12 +63,12 @@ const Header = () => {
           
           {/* Desktop navigation */}
           <div className="hidden md:flex space-x-8">
-            {['home', 'about', 'articles', 'skills', 'contact'].map((section) => (
+            {['home', 'about', 'skills', 'experience', 'articles', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className={`nav-link ${
-                  activeSection === section ? 'text-cyber-green' : ''
+                  activeSection === section ? 'text-cyber-blue' : ''
                 }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -81,12 +81,12 @@ const Header = () => {
         {navOpen && (
           <div className="md:hidden border-t border-cyber-gray py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              {['home', 'about', 'articles', 'skills', 'contact'].map((section) => (
+              {['home', 'about', 'skills', 'experience', 'articles', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`nav-link p-2 ${
-                    activeSection === section ? 'text-cyber-green bg-cyber-gray/30' : ''
+                    activeSection === section ? 'text-cyber-blue bg-cyber-gray/30' : ''
                   }`}
                 >
                   {">"} {section.charAt(0).toUpperCase() + section.slice(1)}

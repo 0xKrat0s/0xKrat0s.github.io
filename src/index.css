@@ -93,7 +93,7 @@
     @apply absolute left-0 bottom-0 w-0 h-0.5 bg-cyber-blue transition-all duration-300;
   }
   
-  /* Fix: Remove @apply with group utility and replace with proper class */
+  /* Fix: Remove group utility and directly apply styles */
   .nav-link:hover::after {
     width: 100%;
   }
@@ -107,3 +107,4 @@ html {
   background-color: rgba(14, 165, 233, 0.3);
   color: #ffffff;
 }
+
