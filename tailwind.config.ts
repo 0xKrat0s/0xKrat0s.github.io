@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				mono: ['IBM Plex Mono', 'monospace'],
+				sans: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +57,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				cyber: {
+					"green": "#00ff41",
+					"blue": "#0072ff",
+					"dark": "#121212",
+					"gray": "#2d2d2d",
+					"light-gray": "#aaaaaa",
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +96,27 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-green': {
+					'0%, 100%': { boxShadow: '0 0 0 0 rgba(0, 255, 65, 0.4)' },
+					'50%': { boxShadow: '0 0 0 10px rgba(0, 255, 65, 0)' },
+				},
+				'terminal-cursor': {
+					'0%': { opacity: 0 },
+					'50%': { opacity: 1 },
+					'100%': { opacity: 0 },
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-green': 'pulse-green 2s infinite',
+				'terminal-cursor': 'terminal-cursor 1s infinite',
+				'fade-in': 'fade-in 0.5s ease-out forwards'
 			}
 		}
 	},
