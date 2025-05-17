@@ -56,9 +56,17 @@ const ArticlesSection = () => {
                 </div>
               </div>
               
-              <h3 className="text-lg font-mono font-medium mb-2 text-white group-hover:text-cyber-green transition-colors">
-                {article.title}
-              </h3>
+              <a 
+                href={article.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group cursor-pointer"
+              >
+                <h3 className="text-lg font-mono font-medium mb-2 text-white group-hover:text-cyber-green transition-colors relative inline-block">
+                  {article.title}
+                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-cyber-green transition-all duration-300 group-hover:w-full"></span>
+                </h3>
+              </a>
               
               <p className="text-cyber-light-gray text-sm mb-4 flex-grow">
                 {article.excerpt}
