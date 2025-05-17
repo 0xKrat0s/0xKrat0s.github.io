@@ -1,30 +1,31 @@
 
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 const ArticlesSection = () => {
   const articles = [
     {
       title: "Exploiting Zero-Day Vulnerabilities in IoT Devices",
       excerpt: "An analysis of recently discovered security flaws in popular smart home systems and how attackers could leverage them for remote access.",
-      url: "https://example.com/blog/iot-vulnerabilities",
+      url: "https://medium.com/cybersecurity/iot-vulnerabilities",
       tags: ["IOT", "Zero-Day", "Research"]
     },
     {
       title: "Secure Coding Practices for Modern Web Applications",
       excerpt: "A comprehensive guide to implementing security-first development approaches that prevent common vulnerabilities in web frameworks.",
-      url: "https://example.com/blog/secure-coding",
+      url: "https://dev.to/security/secure-coding",
       tags: ["Web Security", "Development"]
     },
     {
       title: "Breaking Encryption: The State of Quantum Computing Threats",
       excerpt: "Evaluating the current progress in quantum computing and its implications for the future of cryptographic security systems.",
-      url: "https://example.com/blog/quantum-threats",
+      url: "https://infosec-magazine.com/quantum-threats",
       tags: ["Encryption", "Quantum", "Research"]
     },
     {
       title: "Inside the Dark Web: Tracking Threat Actors and Marketplaces",
       excerpt: "A deep dive into methodologies for monitoring criminal activities and identifying emerging threats in underground forums.",
-      url: "https://example.com/blog/dark-web-analysis",
+      url: "https://cybernews.com/dark-web-analysis",
       tags: ["Threat Intel", "Dark Web"]
     }
   ];
@@ -70,22 +71,7 @@ const ArticlesSection = () => {
               >
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
                   <span className="mr-2">Read Article</span>
-                  <svg 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 16 16" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="transition-transform group-hover:translate-x-1"
-                  >
-                    <path 
-                      d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" 
-                      stroke="currentColor" 
-                      strokeWidth="1.5" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
             </div>
