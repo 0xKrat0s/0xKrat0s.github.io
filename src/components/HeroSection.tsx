@@ -150,7 +150,6 @@ const HeroSection = () => {
                 </Button>
                 </a>
               </div>
-              </div>
             </div>
           </div>
           
