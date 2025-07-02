@@ -3,18 +3,35 @@ import { Shield, Cpu, Globe, Lock } from "lucide-react";
 
 const SkillsSection = () => {
   const securitySkills = [
-    "Penetration Testing", 
-    "Malware Analysis", 
+    "Application Security (Web, Mobile, API)", 
+    "Thick Client PT", 
     "Network Security", 
-    "Secure Coding", 
-    "Reverse Engineering", 
-    "Cloud Security"
+    "Cloud Security", 
+    "Security Frameworks and Standards: OWASP, NIST, CERT-IN"
   ];
   
   const toolsExpertise = [
-    "Burp Suite", "IDA Pro", "Wireshark", "Metasploit",
-    "GDB", "Ghidra", "Docker", "Kubernetes",
-    "AWS Security Tools", "SIEM Systems"
+    "Burpsuite", "Postman", "Nessus", "Docker", "Opengrep", 
+    "Nmap", "ALGOSEC", "Nipper", "Frida/Objection"
+  ];
+
+  const certifications = [
+    {
+      name: "CEH v12 (Certified Ethical Hacker)",
+      issuer: "EC-Council"
+    },
+    {
+      name: "CAP (Certified Appsec Practitioner)",
+      issuer: "The Secops Group"
+    },
+    {
+      name: "CNSP (Certified Network Security Practitioner)",
+      issuer: "The Secops Group"
+    },
+    {
+      name: "Dante, POO (HackTheBox Pro Labs)",
+      issuer: "HackTheBox"
+    }
   ];
 
   return (
@@ -31,17 +48,17 @@ const SkillsSection = () => {
             <h3 className="text-xl font-mono text-cyber-bright-blue">Security Expertise</h3>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="space-y-4">
             {securitySkills.map((skill) => (
-              <div key={skill} className="flex items-center">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyber-blue mr-2.5"></span>
+              <div key={skill} className="flex items-start">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyber-blue mr-2.5 mt-2 flex-shrink-0"></span>
                 <span className="text-cyber-light-gray">{skill}</span>
               </div>
             ))}
           </div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto mb-16">
           <h3 className="text-xl font-mono text-cyber-blue mb-6 flex items-center">
             <Cpu className="mr-2 h-5 w-5" />
             Tools & Technologies
@@ -65,38 +82,19 @@ const SkillsSection = () => {
           
           <h3 className="text-xl font-mono text-cyber-blue mb-6 flex items-center">
             <Lock className="mr-2 h-5 w-5" />
-            Certifications & Education
+            Certifications
           </h3>
           
           <ul className="space-y-4">
-            <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-medium">OSCP (Offensive Security Certified Professional)</p>
-                <p className="text-cyber-light-gray text-sm">Offensive Security</p>
-              </div>
-            </li>
-            <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-medium">CISSP (Certified Information Systems Security Professional)</p>
-                <p className="text-cyber-light-gray text-sm">ISC²</p>
-              </div>
-            </li>
-            <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-medium">M.S. Computer Science, Cybersecurity Specialization</p>
-                <p className="text-cyber-light-gray text-sm">Georgia Institute of Technology</p>
-              </div>
-            </li>
-            <li className="flex items-start">
-              <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-medium">B.S. Computer Science</p>
-                <p className="text-cyber-light-gray text-sm">Massachusetts Institute of Technology</p>
-              </div>
-            </li>
+            {certifications.map((cert, index) => (
+              <li key={index} className="flex items-start">
+                <div className="h-2 w-2 rounded-full bg-cyber-blue mt-2 mr-3 flex-shrink-0"></div>
+                <div>
+                  <p className="font-medium">{cert.name}</p>
+                  <p className="text-cyber-light-gray text-sm">{cert.issuer}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

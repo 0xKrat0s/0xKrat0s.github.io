@@ -5,28 +5,28 @@ import { ExternalLink } from "lucide-react";
 const ArticlesSection = () => {
   const articles = [
     {
-      title: "Exploiting Zero-Day Vulnerabilities in IoT Devices",
-      excerpt: "An analysis of recently discovered security flaws in popular smart home systems and how attackers could leverage them for remote access.",
-      url: "https://medium.com/cybersecurity/iot-vulnerabilities",
-      tags: ["IOT", "Zero-Day", "Research"]
+      title: "NoSQL injection",
+      excerpt: "NoSQL injection is a vulnerability where an attacker is able to interfere with the queries that an application makes to a NoSQL database.",
+      url: "https://blog.amalpk.in/nosql-injection",
+      tags: ["Web Security", "Bug Bounty", "Injection"]
     },
     {
-      title: "Secure Coding Practices for Modern Web Applications",
-      excerpt: "A comprehensive guide to implementing security-first development approaches that prevent common vulnerabilities in web frameworks.",
-      url: "https://dev.to/security/secure-coding",
-      tags: ["Web Security", "Development"]
+      title: "Client Side Path Traversal (CSPT)",
+      excerpt: "Exploring Client-Side Path Traversal (CSPT): How Attackers Exploit API Requests to Bypass Security and Exfiltrate Data.",
+      url: "https://medium.com/bug-bounty-hunting/client-side-path-traversal-cspt-a-deep-dive-into-an-overlooked-vulnerability-cdf91baca715",
+      tags: ["Web Security", "Bug Bounty"]
     },
     {
-      title: "Breaking Encryption: The State of Quantum Computing Threats",
-      excerpt: "Evaluating the current progress in quantum computing and its implications for the future of cryptographic security systems.",
-      url: "https://infosec-magazine.com/quantum-threats",
-      tags: ["Encryption", "Quantum", "Research"]
+      title: "PHP Type Juggling Vulnerabilities",
+      excerpt: "How Attackers Exploit Loose Comparisons PHP type juggling that leads to security vulnerabilities.",
+      url: "https://0xkratos.medium.com/php-type-juggling-vulnerabilities-how-attackers-exploit-loose-comparisons-e4e0c78ec9e6",
+      tags: ["Web Security", "Development", "PHP"]
     },
     {
-      title: "Inside the Dark Web: Tracking Threat Actors and Marketplaces",
-      excerpt: "A deep dive into methodologies for monitoring criminal activities and identifying emerging threats in underground forums.",
-      url: "https://cybernews.com/dark-web-analysis",
-      tags: ["Threat Intel", "Dark Web"]
+      title: "Web Cache Deception",
+      excerpt: "Understanding and Mitigating Security Risks Learn about Web Cache Deception and Cache Poisoning.",
+      url: "https://blog.amalpk.in/web-cache-deception",
+      tags: ["Web Security", "Bug Bounty"]
     }
   ];
 

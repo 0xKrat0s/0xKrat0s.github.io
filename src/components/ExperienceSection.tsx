@@ -4,43 +4,27 @@ import { Briefcase } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
-      position: "Chief Security Researcher",
-      company: "SecureTech Systems",
-      period: "2020 - Present",
+      position: "Junior Security Analyst",
+      company: "HackIT Technology and Advisory Services",
+      period: "Jan 2025 - Present",
       responsibilities: [
-        "Leading research on emerging threats in cloud security environments",
-        "Developing novel detection techniques for sophisticated zero-day attacks",
-        "Publishing security advisories and collaborating with industry partners on vulnerability mitigation"
+        "Performed penetration testing on web apps, mobile apps, APIs, and cloud environments, identifying vulnerabilities and helping teams fix them",
+        "Assessed infrastructure and network security to find misconfigurations and potential risks",
+        "Handled clients throughout the project life cycle — from understanding their security needs to sharing findings and guiding them through remediation",
+        "Wrote clear and detailed reports explaining security issues and suggested practical solutions",
+        "Ensured that assessments were aligned with industry standards and frameworks such as the OWASP Top 10, NIST, CERT-IN guidelines, and other relevant compliance requirements"
       ]
     },
     {
-      position: "Security Engineer Team Lead",
-      company: "CyberDefense Inc.",
-      period: "2017 - 2020",
+      position: "Security Analyst - Intern",
+      company: "HackIT Technology and Advisory Services",
+      period: "Sep 2024 – Dec 2024",
       responsibilities: [
-        "Managed a team of 8 security engineers focused on threat detection",
-        "Implemented advanced endpoint protection solutions across enterprise networks",
-        "Reduced incident response time by 65% through automation and streamlined protocols"
-      ]
-    },
-    {
-      position: "Penetration Tester",
-      company: "Ethical Hack Consulting",
-      period: "2014 - 2017",
-      responsibilities: [
-        "Conducted comprehensive security assessments for Fortune 500 clients",
-        "Specialized in web application and network infrastructure testing",
-        "Discovered and responsibly disclosed 13 critical vulnerabilities in widely-used systems"
-      ]
-    },
-    {
-      position: "Security Analyst",
-      company: "Global Financial Services",
-      period: "2012 - 2014",
-      responsibilities: [
-        "Monitored security infrastructure and responded to incidents in a 24/7 SOC environment",
-        "Developed custom detection rules for the SIEM platform",
-        "Led security awareness training for over 5,000 employees"
+        "Conducted penetration testing on web applications (Black Box, Grey Box, White Box) to find and report vulnerabilities",
+        "Tested APIs for vulnerabilities and secured integrations",
+        "Identified and fixed security flaws in Android applications",
+        "Performed Thick Client Pentesting to identify application-level vulnerabilities",
+        "Documented findings in detailed reports, providing clear and actionable recommendations for remediation"
       ]
     }
   ];

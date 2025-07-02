@@ -127,20 +127,20 @@ const HeroSection = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-sm text-cyber-blue font-mono mb-2">
                 <div className="h-1 w-1 rounded-full bg-cyber-blue animate-pulse-blue"></div>
-                <span>// Security Researcher & Developer</span>
+                <span>// Security Researcher & Analyst</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-mono">
-                Hello, I'm <span className="text-cyber-blue">CyberDev</span>
+                Hello, I'm <span className="text-cyber-blue">Amal</span>
               </h1>
               
               <p className="text-lg md:text-xl mb-8 text-cyber-light-gray max-w-lg">
-                Specializing in vulnerability research and secure application development with a focus on critical infrastructure protection. I transform complex security concepts into accessible knowledge for the tech community.
+                Specializing in application security, vulnerability assessment, and penetration testing.
               </p>
               
               <div className="flex gap-4">
                 <Button className="bg-cyber-blue text-black hover:bg-cyber-blue/80 font-mono">
-                  View Projects
+                  Download Resume
                 </Button>
                 <Button variant="outline" className="border-cyber-blue text-cyber-blue hover:bg-cyber-blue/10 font-mono">
                   Contact Me

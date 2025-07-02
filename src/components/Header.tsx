@@ -42,7 +42,7 @@ const Header = () => {
         <nav className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <span className="font-mono font-bold text-cyber-blue text-lg mr-2">~/</span>
-            <span className="font-mono font-bold">cyber_portfolio</span>
+            <span className="font-mono font-bold">amal_pk</span>
             <span className="animate-terminal-cursor text-cyber-blue ml-1">_</span>
           </div>
           
