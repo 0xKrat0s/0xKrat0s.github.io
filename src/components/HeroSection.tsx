@@ -139,12 +139,17 @@ const HeroSection = () => {
               </p>
               
               <div className="flex gap-4">
+                <a href="/Amalpk_Resume.pdf">
                 <Button className="bg-cyber-blue text-black hover:bg-cyber-blue/80 font-mono">
                   Download Resume
                 </Button>
+                </a>
+                <a href="#contact">
                 <Button variant="outline" className="border-cyber-blue text-cyber-blue hover:bg-cyber-blue/10 font-mono">
                   Contact Me
                 </Button>
+                </a>
+              </div>
               </div>
             </div>
           </div>
