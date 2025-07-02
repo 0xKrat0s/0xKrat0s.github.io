@@ -21,7 +21,7 @@ const ContactSection = () => {
               <div>
                 <h4 className="text-lg font-mono mb-1">Email</h4>
                 <a href="mailto:contact@cybersecurity.dev" className="text-cyber-blue hover:underline">
-                  contact@cybersecurity.dev
+                  hello@amalpk.in
                 </a>
               </div>
             </div>
@@ -32,8 +32,8 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-mono mb-1">Twitter</h4>
-                <a href="https://twitter.com/cybersecurity_dev" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
-                  @cybersecurity_dev
+                <a href="https://twitter.com/0xkratos" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
+                  @0xkratos
                 </a>
               </div>
             </div>
@@ -44,20 +44,8 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-mono mb-1">Bluesky</h4>
-                <a href="https://bsky.app/profile/cybersecurity.dev" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
-                  @cybersecurity.dev
-                </a>
-              </div>
-            </div>
-            
-            <div className="flex items-start group">
-              <div className="bg-cyber-gray p-3 rounded-md mr-4 group-hover:bg-cyber-blue/10 transition-colors duration-300">
-                <Github className="text-cyber-blue" />
-              </div>
-              <div>
-                <h4 className="text-lg font-mono mb-1">GitHub</h4>
-                <a href="https://github.com/cybersecurity-dev" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
-                  github.com/cybersecurity-dev
+                <a href="https://bsky.app/profile/0xkratos.bsky.social" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
+                  @0xkratos
                 </a>
               </div>
             </div>
@@ -68,8 +56,8 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-mono mb-1">LinkedIn</h4>
-                <a href="https://linkedin.com/in/cybersecurity-dev" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
-                  linkedin.com/in/cybersecurity-dev
+                <a href="https://linkedin.com/in/amalpk" target="_blank" rel="noopener noreferrer" className="text-cyber-blue hover:underline">
+                  linkedin.com/in/amalpk
                 </a>
               </div>
             </div>
