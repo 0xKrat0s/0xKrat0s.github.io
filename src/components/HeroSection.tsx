@@ -13,9 +13,6 @@ const HeroSection = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
-    
     // 3D cube vertices
     const vertices = [
       [-1, -1, -1],
@@ -35,14 +32,29 @@ const HeroSection = () => {
       [0, 4], [1, 5], [2, 6], [3, 7]
     ];
     
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const scale = Math.min(canvas.width, canvas.height) * 0.25;
+    // Geometry depends on canvas size, so recompute on every resize
+    let centerX = 0;
+    let centerY = 0;
+    let scale = 0;
+    
+    const resizeCanvas = () => {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const cssWidth = canvas.clientWidth;
+      const cssHeight = canvas.clientHeight;
+      
+      canvas.width = Math.round(cssWidth * dpr);
+      canvas.height = Math.round(cssHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      
+      centerX = cssWidth / 2;
+      centerY = cssHeight / 2;
+      scale = Math.min(cssWidth, cssHeight) * 0.25;
+    };
     
     let angle = 0;
     
-    function render() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const render = () => {
+      ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
       
       // Rotate and project vertices
       const rotatedVertices = vertices.map(([x, y, z]) => {
@@ -101,21 +113,57 @@ const HeroSection = () => {
       });
       
       ctx.globalAlpha = 1;
-      
+    };
+    
+    const animate = () => {
       angle += 0.01;
-      requestAnimationFrame(render);
+      render();
+      frameId = requestAnimationFrame(animate);
+    };
+    
+    let frameId = 0;
+    resizeCanvas();
+    
+    const prefersReducedMotion =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // Respect reduced motion: draw exactly one static frame, no animation loop
+      render();
+    } else {
+      frameId = requestAnimationFrame(animate);
     }
     
     const resizeObserver = new ResizeObserver(() => {
-      canvas.width = canvas.clientWidth;
-      canvas.height = canvas.clientHeight;
+      resizeCanvas();
+      // Re-render immediately so the cube recenters without waiting a frame
+      if (!prefersReducedMotion) {
+        cancelAnimationFrame(frameId);
+        frameId = requestAnimationFrame(animate);
+      }
     });
     
     resizeObserver.observe(canvas);
-    render();
+    
+    const motionQuery =
+      typeof window.matchMedia === 'function'
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : null;
+    const handleMotionChange = (event: MediaQueryListEvent) => {
+      cancelAnimationFrame(frameId);
+      if (event.matches) {
+        render();
+      } else {
+        frameId = requestAnimationFrame(animate);
+      }
+    };
+    motionQuery?.addEventListener('change', handleMotionChange);
     
     return () => {
       resizeObserver.disconnect();
+      motionQuery?.removeEventListener('change', handleMotionChange);
+      cancelAnimationFrame(frameId);
     };
   }, []);
   
