@@ -7,7 +7,7 @@ const ArticlesSection = () => {
     {
       title: "NoSQL injection",
       excerpt: "NoSQL injection is a vulnerability where an attacker is able to interfere with the queries that an application makes to a NoSQL database.",
-      url: "https://blog.amalpk.in/nosql-injection",
+      url: "https://notes.amalpk.in/nosql-injection",
       tags: ["Web Security", "Bug Bounty", "Injection"]
     },
     {
@@ -25,7 +25,7 @@ const ArticlesSection = () => {
     {
       title: "Web Cache Deception",
       excerpt: "Understanding and Mitigating Security Risks Learn about Web Cache Deception and Cache Poisoning.",
-      url: "https://blog.amalpk.in/web-cache-deception",
+      url: "https://notes.amalpk.in/web-cache-deception",
       tags: ["Web Security", "Bug Bounty"]
     }
   ];

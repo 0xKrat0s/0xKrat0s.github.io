@@ -20,7 +20,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-mono mb-1">Email</h4>
-                <a href="mailto:contact@cybersecurity.dev" className="text-cyber-blue hover:underline">
+                <a href="mailto:hello@amalpk.in" className="text-cyber-blue hover:underline">
                   hello@amalpk.in
                 </a>
               </div>
